@@ -1,9 +1,8 @@
-var JOGAR;
-var ENCERRAR;
+
 var imgTorre,torre;
 var imgFantasma,fantasma;
 var chaoinvisivel;
-var estadoJogo = JOGAR
+var estadoJogo = "JOGAR";
 var obstaculo, imgObstaculo, grupoObstaculos;
 
 
@@ -39,11 +38,11 @@ function draw(){
   background(200);
   textSize(20);
 
-estadoJogo = JOGAR;
+estadoJogo = "JOGAR";
 
 
 
-if (estadoJogo == JOGAR){
+if (estadoJogo == "JOGAR"){
   gerarObstaculo();
   if(keyDown("space")){
     fantasma.velocityY = -10; 
@@ -53,7 +52,7 @@ if (estadoJogo == JOGAR){
     fantasma.velocityY += 0.5;   
 
     if(fantasma.isTouching(grupoObstaculos) ){
-      estadoJogo = ENCERRAR;
+      estadoJogo = "ENCERRAR";
       }
 
   fantasma.x = World.mouseX;
@@ -63,7 +62,7 @@ if (estadoJogo == JOGAR){
   }
 
 }
-if(estadoJogo == ENCERRAR){
+if(estadoJogo == "ENCERRAR"){
   //grupoObstaculos.destroyEach();
   grupoObstaculos.setVelocityYEach(0);
   torre.velocityY = 0;
